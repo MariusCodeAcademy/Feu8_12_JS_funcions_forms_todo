@@ -41,12 +41,15 @@ function sum(sk1, sk2) {
   console.log('rezult ===', rezult);
   return rezult;
 }
+/** @param {array} numArr  */
 function getArraySum(numArr) {
-  // kad veiktu
-  // atspausdinti ir grazinti suma
+  const sum = numArr.reduce((total, sk) => total + sk, 0);
+  console.log('sum ===', sum);
+  return sum;
 }
 getArraySum([1, 2, 3, 4]);
-getArraySum([1, 2]);
+let arGryzo = getArraySum([1, 2]);
+console.log('arGryzo ===', arGryzo);
 let gryzoGrazaIsFunkcionsVel = sum(num1, num2);
 let gryzoGrazaIsFunkcionsVel1 = sum(num3, num4);
 console.log('gryzoGrazaIsFunkcionsVel ===', gryzoGrazaIsFunkcionsVel);
@@ -57,9 +60,20 @@ const rezult1 = sum(gryzoGrazaIsFunkcionsVel, gryzoGrazaIsFunkcionsVel1);
 console.log('rezult ===', rezult);
 console.log('rezult1 ===', rezult1);
 
-// sukurti html elementa 'p'
-// prideti jam klase 'special'
-// prideti jam tekta "i am new el"
-// patalpinti ji div su id 'app'
+// taikomes
+const appEl = document.getElementById('app');
 
+function makeEl() {
+  // sukurti html elementa 'p'
+  const pEl = document.createElement('p');
+  // prideti jam klase 'special'
+  pEl.classList.add('special');
+  // prideti jam tekta "i am new el"
+  pEl.textContent = 'i am new el';
+  // patalpinti ji div su id 'app'
+  appEl.append(pEl);
+}
+makeEl();
+makeEl();
+makeEl();
 // padaryti kad tai vyktu su funkcija
