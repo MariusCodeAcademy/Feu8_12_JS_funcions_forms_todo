@@ -7,13 +7,15 @@ const mainTodosArr = [
   { id: 1, title: 'Go for a walk', isDone: false },
   { id: 1, title: 'Do pushups', isDone: true },
 ];
-
+const todosFormEl = document.getElementById('todosForm');
 // sukurti nusitaikymu objekta
 
 // nusitaikyti i forma, ul elementa ir input elementa
 
 // sustabdyti forma nuo perkrovimo
-
+todosFormEl.addEventListener('submit', () => {
+  console.log('asdasds');
+});
 // pateikiant forma paimti ivesties lauko reiksme
 
 // sukuri atskira funkcija
