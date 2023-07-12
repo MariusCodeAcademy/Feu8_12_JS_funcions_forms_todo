@@ -21,9 +21,11 @@
     console.log('submit');
     // paimti ivesties reikmess is abieju inputu
     // .value grazins string
-    const firstNum = els.num1.value;
-    const secondNum = els.num2.value;
-    console.log('typeof firstNum ===', typeof firstNum);
+    const firstNum = Number(els.num1.value);
+    // const secondNum = +els.num2.value;
+    const secondNum = els.num2.valueAsNumber;
+    // console.log('typeof firstNum ===', typeof firstNum);
+    // console.log('typeof secondNum ===', typeof secondNum);
     // paimti operacijos reikme is seleto
     const operValue = els.operation.value;
     console.log(firstNum, operValue, secondNum);
