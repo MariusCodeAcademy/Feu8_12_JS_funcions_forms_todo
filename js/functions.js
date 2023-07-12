@@ -62,18 +62,29 @@ console.log('rezult1 ===', rezult1);
 
 // taikomes
 const appEl = document.getElementById('app');
+const mainEl = document.getElementById('main');
+const name1 = 'James';
 
-function makeEl() {
+function makeEl(destination, text, newClass = '', tagName = 'p') {
   // sukurti html elementa 'p'
-  const pEl = document.createElement('p');
+  const pEl = document.createElement(tagName);
   // prideti jam klase 'special'
-  pEl.classList.add('special');
+  pEl.className = newClass;
   // prideti jam tekta "i am new el"
-  pEl.textContent = 'i am new el';
+  pEl.textContent = text;
   // patalpinti ji div su id 'app'
-  appEl.append(pEl);
+  destination.append(pEl);
 }
-makeEl();
-makeEl();
-makeEl();
+debugger;
+makeEl(appEl, name1, 'blue', 'h2');
+makeEl(mainEl, 'was in 007 movie');
+makeEl(appEl, 'Bond', '', 'h1');
 // padaryti kad tai vyktu su funkcija
+
+// makeEl turetu grazinti naujai sukurta elementa
+/* sukurti tokia struktura ir pataplinti i main elementa
+<article>
+  <h2 class="main">Title</h2>
+  <p class="text">I am text</p>
+</article>
+*/
