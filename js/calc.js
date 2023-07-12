@@ -10,6 +10,7 @@
     num1: document.getElementById('num1'),
     operation: document.getElementById('operation'),
     num2: document.getElementById('num2'),
+    results: document.getElementById('results'),
   };
   console.log('els ===', els);
   // dedam formai pateikimo pasiklausyma
@@ -19,21 +20,43 @@
     formSubmitEvent.preventDefault();
     console.log('submit');
     // paimti ivesties reikmess is abieju inputu
+    // .value grazins string
     const firstNum = els.num1.value;
     const secondNum = els.num2.value;
-
+    console.log('typeof firstNum ===', typeof firstNum);
     // paimti operacijos reikme is seleto
     const operValue = els.operation.value;
     console.log(firstNum, operValue, secondNum);
     // priklausomai nuo operacijos atlikti veiksma
-
+    let rez;
+    let veiksmas;
     switch (operValue) {
       case '*':
         console.log('vyksta daugyba');
-        const rez = firstNum * secondNum;
-        console.log('rez ===', rez);
+        rez = firstNum * secondNum;
+        veiksmas = `${firstNum} * ${secondNum}`;
         break;
+      case '-':
+        console.log('vyksta daugyba');
+        rez = firstNum - secondNum;
+        veiksmas = `${firstNum} - ${secondNum}`;
+        break;
+      case '/':
+        console.log('vyksta daugyba');
+        rez = firstNum / secondNum;
+        veiksmas = `${firstNum} / ${secondNum}`;
+        break;
+      case '+':
+        console.log('vyksta daugyba');
+        rez = firstNum + secondNum;
+        veiksmas = `${firstNum} + ${secondNum}`;
+        break;
+      default:
+        console.warn('neteisinga operacija');
+      //surasyti likusias operacijas
     }
+    console.log('rez ===', rez);
     // pateikti atsakyma htmle
+    makeEl(els.results, `${veiksmas} = ${rez}`, '', 'li');
   });
 })();
