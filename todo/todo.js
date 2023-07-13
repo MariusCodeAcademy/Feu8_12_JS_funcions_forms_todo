@@ -43,6 +43,7 @@ function makeLiEl(todoTitle) {
   const newLiEl = document.createElement('li');
   const spanEl = document.createElement('span');
   spanEl.textContent = todoTitle;
+  spanEl.addEventListener('click', toggleTodo);
   const buttonEl = document.createElement('button');
   buttonEl.addEventListener('click', deleteLiEl);
   buttonEl.textContent = 'X';
@@ -65,9 +66,13 @@ function deleteLiEl(event) {
   // console.log('liEl ===', liEl);
   liEl.remove();
 }
-
+// console.log('toggleTodo ===', toggleTodo);
 function toggleTodo(event) {
   // isloginti ant ko paspaudem
+  // console.log(event.target);
+  /** @type {HTMLSpanElement} */
+  const spanEl = event.target;
+  spanEl.classList.toggle('doneTodo');
 }
 
 // sunkiau
@@ -76,3 +81,13 @@ function toggleTodo(event) {
 // paspaudus ant delete mes trinsim tevini elementa
 
 // paspaudus ant span su tekstu mes toglinsim clase .doneTodo
+
+function initListeners() {
+  const spanNodeList = els.list.querySelectorAll('span');
+  console.log('spanNodeList ===', spanNodeList);
+  spanNodeList.forEach((spanEl) => {
+    spanEl.addEventListener('click', toggleTodo);
+  });
+  // TODO: buttons eventlisteners
+}
+initListeners();
