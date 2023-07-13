@@ -29,12 +29,46 @@ els.form.addEventListener('submit', (event) => {
   const newTodoValue = els.input.value;
   console.log('newTodoValue ===', newTodoValue);
   const newEl = makeLiEl(newTodoValue);
+  console.log('newEl ===', newEl);
+  // patalpinti nauja el
+  addLiElToList(newEl);
+  // els.input.value = '';
+  els.form.reset();
 });
 
 // sukuri atskira funkcija
-function makeLiEl(todoTitle) {}
-// sukurti nauja li elementa su reikmes is iviesties lauko
+// <li><span class="doneTodo">Do stuff</span> <button>X</button></li>
+function makeLiEl(todoTitle) {
+  // sukurti nauja li elementa su reikmes is iviesties lauko
+  const newLiEl = document.createElement('li');
+  const spanEl = document.createElement('span');
+  spanEl.textContent = todoTitle;
+  const buttonEl = document.createElement('button');
+  buttonEl.addEventListener('click', deleteLiEl);
+  buttonEl.textContent = 'X';
+  newLiEl.append(spanEl, buttonEl);
+  return newLiEl;
+}
 // patalpinti saraso elemente
+function addLiElToList(liEl) {
+  els.list.append(liEl);
+}
+
+// function to delete li
+function deleteLiEl(event) {
+  // console.log('event ===', event);
+  console.log('delete');
+  // event.target - tas elementas ant kurio paspaudem
+  const btnEl = event.target;
+  // console.log('btnEl ===', btnEl);
+  const liEl = btnEl.parentElement;
+  // console.log('liEl ===', liEl);
+  liEl.remove();
+}
+
+function toggleTodo(event) {
+  // isloginti ant ko paspaudem
+}
 
 // sunkiau
 // gauti esama elementa pagal event.target
