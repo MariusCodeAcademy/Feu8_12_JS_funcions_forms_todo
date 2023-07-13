@@ -21,7 +21,8 @@
     console.log('submit');
     // paimti ivesties reikmess is abieju inputu
     // .value grazins string
-    const firstNum = Number(els.num1.value);
+    const firstNumAsString = els.num1.value;
+    const firstNum = Number(firstNumAsString);
     // const secondNum = +els.num2.value;
     const secondNum = els.num2.valueAsNumber;
     // console.log('typeof firstNum ===', typeof firstNum);
